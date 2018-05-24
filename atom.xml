@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Hxwtry</title>
   
-  <subtitle>笔记</subtitle>
+  <subtitle>有迹可循</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-24T05:13:38.926Z</updated>
+  <updated>2018-05-24T05:48:16.714Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>android-openCV</title>
+    <link href="http://yoursite.com/2018/05/24/android-openCV/"/>
+    <id>http://yoursite.com/2018/05/24/android-openCV/</id>
+    <published>2018-05-24T05:46:44.000Z</published>
+    <updated>2018-05-24T05:48:16.714Z</updated>
+    
+    <content type="html"><![CDATA[<h6 id="一、下载OpenCV-for-Android（下载链接）"><a href="#一、下载OpenCV-for-Android（下载链接）" class="headerlink" title="一、下载OpenCV for Android（下载链接）"></a>一、下载OpenCV for Android（下载链接）</h6><h6 id="二、新建android项目，导入模块"><a href="#二、新建android项目，导入模块" class="headerlink" title="二、新建android项目，导入模块"></a>二、新建android项目，导入模块</h6><p><img src="media/15259333068051/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-09%20%E4%B8%8B%E5%8D%883.44.21.png" alt="屏幕快照 2018-05-09 下午3.44.21"><br><img src="media/15259333068051/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-09%20%E4%B8%8B%E5%8D%883.46.39.png" alt="屏幕快照 2018-05-09 下午3.46.39"><br><img src="media/15259333068051/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-09%20%E4%B8%8B%E5%8D%883.44.30.png" alt="屏幕快照 2018-05-09 下午3.44.30"><br><img src="media/15259333068051/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-09%20%E4%B8%8B%E5%8D%883.44.05.png" alt="屏幕快照 2018-05-09 下午3.44.05"></p><h6 id="三、将OpenCV-android-sdk-gt-sdk-gt-native-gt-libs下的文件复制到app-gt-libs下。"><a href="#三、将OpenCV-android-sdk-gt-sdk-gt-native-gt-libs下的文件复制到app-gt-libs下。" class="headerlink" title="三、将OpenCV-android-sdk-&gt;sdk-&gt;native-&gt;libs下的文件复制到app-&gt;libs下。"></a>三、将OpenCV-android-sdk-&gt;sdk-&gt;native-&gt;libs下的文件复制到app-&gt;libs下。</h6><h6 id="四、配置"><a href="#四、配置" class="headerlink" title="四、配置"></a>四、配置</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">task <span class="title">nativeLibsToJar</span><span class="params">(type: Jar, description: <span class="string">'create a jar archive of the native libs'</span>)</span> </span>&#123; </span><br><span class="line">    <span class="function">destinationDir <span class="title">file</span><span class="params">(<span class="string">"$buildDir/native-libs"</span>)</span></span></span><br><span class="line"><span class="function">    baseName '<span class="keyword">native</span>-libs' </span></span><br><span class="line"><span class="function">    from <span class="title">fileTree</span><span class="params">(dir: <span class="string">'libs'</span>, include: <span class="string">'**/*.so'</span>)</span> </span></span><br><span class="line"><span class="function">    into 'lib/'</span></span><br><span class="line"><span class="function">&#125; </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">tasks.<span class="title">withType</span><span class="params">(JavaCompile)</span> </span>&#123; </span><br><span class="line">    compileTask -&gt;compileTask.dependsOn(nativeLibsToJar) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile fileTree(dir: &quot;$buildDir/native-libs&quot;, include: &apos;native-libs.jar&apos;)</span><br></pre></td></tr></table></figure><p><img src="media/15259333068051/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-09%20%E4%B8%8B%E5%8D%884.41.15.png" alt="屏幕快照 2018-05-09 下午4.41.15"><br><img src="media/15259333068051/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-09%20%E4%B8%8B%E5%8D%884.41.27.png" alt="屏幕快照 2018-05-09 下午4.41.27"></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//OpenCV库静态加载并初始化 </span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">staticLoadCVLibraries</span><span class="params">()</span></span>&#123; </span><br><span class="line">    <span class="keyword">boolean</span> load = OpenCVLoader.initDebug(); </span><br><span class="line">    <span class="keyword">if</span>(load) &#123; </span><br><span class="line">        Log.i(<span class="string">"CV"</span>, <span class="string">"Open CV Libraries loaded..."</span>); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h6 id=&quot;一、下载OpenCV-for-Android（下载链接）&quot;&gt;&lt;a href=&quot;#一、下载OpenCV-for-Android（下载链接）&quot; class=&quot;headerlink&quot; title=&quot;一、下载OpenCV for Android（下载链接）&quot;&gt;&lt;/a&gt;一、
+      
+    
+    </summary>
+    
+    
+      <category term="android" scheme="http://yoursite.com/tags/android/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
